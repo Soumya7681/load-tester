@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+/* Burgundy and off-white theme. Components use these tokens only, never raw hex. */
+:root {
+  --canvas: #faf7f2;
+  --surface: #fffdf9;
+  --sunken: #f3eee6;
+  --line: #e7ded3;
+  --line-strong: #d3c6b6;
+  --ink: #2a1a1d;
+  --muted: #6f5f62;
+  --primary: #800020;
+  --primary-hover: #650019;
+  --primary-fill: #800020;
+  --primary-soft: #f3e4e6;
+  --on-primary: #fffdf9;
+  --accent: #9a7440;
+  --ok: #2f6b4f;
+  --ok-soft: #e3efe8;
+  --fail: #c2410c;
+  --fail-soft: #fbe9df;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --canvas: #1c1315;
+    --surface: #251a1d;
+    --sunken: #1f1517;
+    --line: #3d2a2e;
+    --line-strong: #553b40;
+    --ink: #f5efe6;
+    --muted: #b5a7a0;
+    --primary: #e07a8f;
+    --primary-hover: #a3243f;
+    --primary-fill: #8e1b33;
+    --primary-soft: #3a2026;
+    --on-primary: #f5efe6;
+    --accent: #cdaa72;
+    --ok: #6fbf94;
+    --ok-soft: #1f3329;
+    --fail: #ff8a5b;
+    --fail-soft: #3d2219;
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-sunken: var(--sunken);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-fill: var(--primary-fill);
+  --color-primary-soft: var(--primary-soft);
+  --color-on-primary: var(--on-primary);
+  --color-accent: var(--accent);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-fail: var(--fail);
+  --color-fail-soft: var(--fail-soft);
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
+  --radius-sm: 3px;
+  --radius-md: 6px;
+}
+
+body {
+  background: var(--canvas);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Recharts focus outline on the svg wrapper adds noise on click */
+.recharts-wrapper:focus,
+.recharts-surface:focus {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
